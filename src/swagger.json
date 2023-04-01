@@ -19,6 +19,77 @@
     },
     "security": [{ "BasicAuth": [] }],
     "paths": {
+      "/cache": {
+        "post": {
+          "tags": ["Cache"],
+          "summary": "Create a key-value pair in cache",
+          "description": "Add a key-value pair to the cache",
+          "operationId": "addKeyValue",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string",
+                      "example": "test-key"
+                    },
+                    "value": {
+                      "type": "string",
+                      "example": "test-value"
+                    }
+                  },
+                  "required": ["key", "value"]
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Key-value pair added to cache",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "message": {
+                        "type": "string",
+                        "description": "Success message"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "get": {
+          "tags": ["Cache"],
+          "summary": "Get the value of a key",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "key": {
+                      "type": "string",
+                      "example": "test-key"
+                    }
+                  },
+                  "required": ["key"]
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": { "description": "Key value retrieved", "content": { "application/json": { "schema": { "type": "object", "properties": { "value": { "type": "string" } } } } } },
+            "400": { "description": "Invalid key" },
+            "500": { "description": "Internal server error" }
+          }
+        }
+      },
       "/contact": {
         "post": {
           "tags": ["Contact"],

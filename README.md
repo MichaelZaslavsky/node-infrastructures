@@ -28,6 +28,8 @@ A fully ChatGPT development of a Node.js application built with Express and Type
 
 ✔️ Rate limiting
 
+✔️ Redis Cluster
+
 ✔️ Docker support
 
 ✔️ GitHub Actions CI/CD
@@ -52,6 +54,7 @@ AUTH_PASSWORD=your-auth-password
 MAIL_USER=your-email
 MAIL_PASS=your-email-password
 MAIL_HOST=your-email-host
+REDIS_HOST=localhost
 ```
 
 1. Run the application
