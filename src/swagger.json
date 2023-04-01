@@ -9,6 +9,15 @@
         "url": "/"
       }
     ],
+    "components": {
+        "securitySchemes": {
+          "BasicAuth": {
+            "type": "http",
+            "scheme": "basic"
+          }
+        }
+    },
+    "security": [{ "BasicAuth": [] }],
     "paths": {
       "/contact": {
         "post": {

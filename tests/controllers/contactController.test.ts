@@ -1,6 +1,5 @@
-import request from "supertest";
-import app from "../../src/app";
 import { sendEmail } from "../../src/services/emailService";
+import { authenticatedAgent } from "../infrastructures/basicAuthentication";
 
 jest.mock("../../src/services/emailService", () => ({
   sendEmail: jest.fn(),
@@ -10,7 +9,7 @@ describe("ContactController", () => {
   it("should send an email and return a success message", async () => {
     (sendEmail as jest.Mock).mockResolvedValue(undefined);
 
-    const response = await request(app).post("/contact").send({
+    const response = await authenticatedAgent().post("/contact").send({
       name: "John Doe",
       email: "john@example.com",
       message: "Hello there!",
@@ -30,7 +29,7 @@ describe("ContactController", () => {
       new Error("Email service error")
     );
 
-    const response = await request(app).post("/contact").send({
+    const response = await authenticatedAgent().post("/contact").send({
       name: "John Doe",
       email: "john@example.com",
       message: "Hello there!",

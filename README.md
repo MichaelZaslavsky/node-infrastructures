@@ -24,7 +24,7 @@ A fully ChatGPT development of a Node.js application built with Express and Type
 
 ✔️ Unit tests
 
-✔️ Swagger documentation
+✔️ Swagger documentation and authentication
 
 ✔️ Rate limiting
 
@@ -45,8 +45,10 @@ cd node-infrastructures
 npm install
 ```
 
-1. Create a `.env` file and add your email, password and host
+1. Create a `.env` file and add the following keys:
 ```
+AUTH_USER=your-auth-user
+AUTH_PASSWORD=your-auth-password
 MAIL_USER=your-email
 MAIL_PASS=your-email-password
 MAIL_HOST=your-email-host
