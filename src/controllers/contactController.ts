@@ -1,11 +1,19 @@
 import { Request, Response } from "express";
 import { sendEmail } from "../services/emailService";
+import { Email } from "../models/emailModel";
 
 export async function submitContactForm(req: Request, res: Response) {
   try {
-    const { name, email, message } = req.body;
+    const { name, email, subject, message } = req.body;
+    const model: Email = {
+      name,
+      from: email,
+      to: "MichaelZaslavsky2@gmail.com",
+      subject,
+      message,
+    };
 
-    await sendEmail(name, email, message);
+    await sendEmail(model);
     res.status(200).json({ message: "Message sent successfully" });
   } catch (error) {
     const errorMessage =
