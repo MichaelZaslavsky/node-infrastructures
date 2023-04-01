@@ -108,12 +108,16 @@
                       "type": "string",
                       "example": "john.doe@example.com"
                     },
+                    "subject": {
+                      "type": "string",
+                      "example": "Asking for help"
+                    },
                     "message": {
                       "type": "string",
                       "example": "Hello, I have a question."
                     }
                   },
-                  "required": ["name", "email", "message"]
+                  "required": ["name", "email", "subject", "message"]
                 }
               }
             }

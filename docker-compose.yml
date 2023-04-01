@@ -7,6 +7,11 @@ services:
       - '3000:3000'
     environment:
       - REDIS_HOST=redis
+      - AUTH_USER=ABC
+      - AUTH_PASSWORD=321
+      - MAIL_USER=MichaelZaslavsky2@gmail.com
+      - MAIL_PASS=abcdefghjjjkwe
+      - MAIL_HOST=smtp.gmail.com
     depends_on:
       - redis
 
@@ -20,5 +25,10 @@ services:
     command: npm test
     environment:
       - REDIS_HOST=redis
+      - AUTH_USER=ABC
+      - AUTH_PASSWORD=321
+      - MAIL_USER=MichaelZaslavsky2@gmail.com
+      - MAIL_PASS=abcdefghjjjkwe
+      - MAIL_HOST=smtp.gmail.com
     depends_on:
       - redis

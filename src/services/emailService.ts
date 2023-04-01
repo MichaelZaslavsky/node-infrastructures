@@ -1,9 +1,10 @@
+import { Email } from "../models/emailModel";
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-export async function sendEmail(name: string, email: string, message: string) {
+export async function sendEmail(email: Email) {
   const transporter = nodemailer.createTransport({
     host: process.env.MAIL_HOST,
     port: 587,
@@ -15,10 +16,10 @@ export async function sendEmail(name: string, email: string, message: string) {
   });
 
   const mailOptions = {
-    from: email,
-    to: "MichaelZaslavsky2@gmail.com",
-    subject: `Contact Us - ${name}`,
-    text: message,
+    from: email.from,
+    to: email.to,
+    subject: email.subject,
+    text: email.message,
   };
 
   await transporter.sendMail(mailOptions);
