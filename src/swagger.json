@@ -1,0 +1,56 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Contact Us API",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "/"
+      }
+    ],
+    "paths": {
+      "/contact": {
+        "post": {
+          "tags": ["Contact"],
+          "summary": "Submit a contact form",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "example": "John Doe"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "john.doe@example.com"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Hello, I have a question."
+                    }
+                  },
+                  "required": ["name", "email", "message"]
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Message sent successfully"
+            },
+            "400": {
+              "description": "Bad request"
+            },
+            "500": {
+              "description": "Internal server error"
+            }
+          }
+        }
+      }
+    }
+  }
+  
