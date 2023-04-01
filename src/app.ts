@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import rateLimit from "express-rate-limit";
 import rateLimitConfig from "./rateLimitConfig.json";
 import swaggerUi from "swagger-ui-express";
@@ -15,6 +16,8 @@ const limiter = rateLimit({
   windowMs: rateLimitConfig.windowMs,
   max: rateLimitConfig.maxRequests,
 });
+
+app.use(cors());
 
 app.use(limiter);
 app.use(basicAuthMiddleware);
