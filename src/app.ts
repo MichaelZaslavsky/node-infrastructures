@@ -4,6 +4,7 @@ import rateLimitConfig from "./rateLimitConfig.json";
 import swaggerUi from "swagger-ui-express";
 import swaggerDocument from "./swagger.json";
 import { basicAuthMiddleware } from "./middleware/basicAuthMiddleware";
+import cacheRoutes from "./routes/cacheRoutes";
 import contactRoutes from "./routes/contactRoutes";
 import { errorHandler } from "./middleware/errorHandler";
 import { logger } from "./middleware/logger";
@@ -20,6 +21,7 @@ app.use(basicAuthMiddleware);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(express.json());
 app.use(logger);
+app.use(cacheRoutes);
 app.use(contactRoutes);
 app.use(errorHandler);
 
