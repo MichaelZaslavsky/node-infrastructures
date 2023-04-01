@@ -1,9 +1,8 @@
-import request from "supertest";
-import app from "../../src/app";
+import { authenticatedAgent } from "../infrastructures/basicAuthentication";
 
 describe("ContactRoutes", () => {
   it("should return a 400 error if the request body is missing", async () => {
-    const response = await request(app).post("/contact").send({});
+    const response = await authenticatedAgent().post("/contact").send({});
 
     expect(response.status).toBe(400);
     expect(response.body).toEqual({
@@ -12,7 +11,7 @@ describe("ContactRoutes", () => {
   });
 
   it("should return a 400 error if the request body is incomplete", async () => {
-    const response = await request(app).post("/contact").send({
+    const response = await authenticatedAgent().post("/contact").send({
       name: "John Doe",
       email: "john@example.com",
     });
@@ -24,7 +23,7 @@ describe("ContactRoutes", () => {
   });
 
   it("should return a 400 error if the email is not valid", async () => {
-    const response = await request(app).post("/contact").send({
+    const response = await authenticatedAgent().post("/contact").send({
       name: "John Doe",
       email: "johnexample.com",
       message: "Hello there!",
