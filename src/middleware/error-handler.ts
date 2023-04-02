@@ -4,9 +4,9 @@ import winstonLogger from "../utils/winston-logger";
 
 export const errorHandler = (
   err: Error,
-  req: Request,
+  _: Request,
   res: Response,
-  next: NextFunction
+  _next: NextFunction
 ) => {
   winstonLogger.error(`Error: ${err.message}\n${err.stack}`);
 
@@ -14,7 +14,7 @@ export const errorHandler = (
     return res.status(err.statusCode).send({ errors: err.serializeErrors() });
   }
 
-  res.status(500).send({
+  return res.status(500).send({
     errors: [{ message: "Internal server error. Please retry again later." }],
   });
 };
