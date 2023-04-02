@@ -1,13 +1,13 @@
 import express from "express";
 import cors from "cors";
 import rateLimit from "express-rate-limit";
-import rateLimitConfig from "./rateLimitConfig.json";
+import rateLimitConfig from "./rate-limit-config.json";
 import swaggerUi from "swagger-ui-express";
 import swaggerDocument from "./swagger.json";
-import { basicAuthMiddleware } from "./middleware/basicAuthMiddleware";
-import cacheRoutes from "./routes/cacheRoutes";
-import contactRoutes from "./routes/contactRoutes";
-import { errorHandler } from "./middleware/errorHandler";
+import { basicAuthMiddleware } from "./middleware/basic-auth-middleware";
+import cacheRoutes from "./routes/cache-routes";
+import contactRoutes from "./routes/contact-routes";
+import { errorHandler } from "./middleware/error-handler";
 import { logger } from "./middleware/logger";
 
 const app = express();

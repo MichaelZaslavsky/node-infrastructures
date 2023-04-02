@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { CustomError } from "../errors/custom-error";
-import winstonLogger from "../utils/winstonLogger";
+import winstonLogger from "../utils/winston-logger";
 
 export const errorHandler = (
   err: Error,
