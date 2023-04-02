@@ -1,18 +1,20 @@
 import { Request, Response, NextFunction } from "express";
-import { HttpError } from "../errors/httpError";
+import { CustomError } from "../errors/custom-error";
 import winstonLogger from "../utils/winstonLogger";
 
-export function errorHandler(
+export const errorHandler = (
   err: Error,
   req: Request,
   res: Response,
   next: NextFunction
-) {
+) => {
   winstonLogger.error(`Error: ${err.message}\n${err.stack}`);
 
-  const status = err instanceof HttpError ? err.statusCode : 500;
-  const message =
-    err.message || "Internal server error. Please retry again later.";
+  if (err instanceof CustomError) {
+    return res.status(err.statusCode).send({ errors: err.serializeErrors() });
+  }
 
-  res.status(status).json({ error: message });
-}
+  res.status(500).send({
+    errors: [{ message: "Internal server error. Please retry again later." }],
+  });
+};

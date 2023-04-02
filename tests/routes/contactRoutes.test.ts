@@ -6,7 +6,11 @@ describe("ContactRoutes", () => {
 
     expect(response.status).toBe(400);
     expect(response.body).toEqual({
-      error: "Name is required, Valid email is required, Message is required",
+      errors: [
+        { field: "name", message: "Name is required" },
+        { field: "email", message: "Valid email is required" },
+        { field: "message", message: "Message is required" },
+      ],
     });
   });
 
@@ -18,7 +22,7 @@ describe("ContactRoutes", () => {
 
     expect(response.status).toBe(400);
     expect(response.body).toEqual({
-      error: "Message is required",
+      errors: [{ field: "message", message: "Message is required" }],
     });
   });
 
@@ -31,7 +35,7 @@ describe("ContactRoutes", () => {
 
     expect(response.status).toBe(400);
     expect(response.body).toEqual({
-      error: "Valid email is required",
+      errors: [{ field: "email", message: "Valid email is required" }],
     });
   });
 });

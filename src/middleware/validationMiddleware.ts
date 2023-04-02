@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { validationResult } from "express-validator";
-import { BadRequestError } from "../errors/badRequestError";
+import { RequestValidationError } from "../errors/request-validation-error";
+import "express-async-errors";
 
 export function validationMiddleware(validators: any[]) {
   return async (req: Request, res: Response, next: NextFunction) => {
@@ -10,14 +11,7 @@ export function validationMiddleware(validators: any[]) {
 
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return next(
-        new BadRequestError(
-          errors
-            .array()
-            .map((error) => error.msg)
-            .join(", ")
-        )
-      );
+      throw new RequestValidationError(errors.array());
     }
 
     next();
