@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { sendEmail } from "../services/emailService";
+import { sendEmail } from "../services/email-service";
 import { IEmail } from "../interfaces/email.interface";
 
 export async function submitContactForm(req: Request, res: Response) {

@@ -1,5 +1,4 @@
-import request from "supertest";
-import { authenticatedAgent } from "../infrastructures/basicAuthentication";
+import { authenticatedAgent } from "../infrastructures/basic-authentication";
 
 describe("Cache Routes Validation", () => {
   describe("Create Key-Value Pair", () => {

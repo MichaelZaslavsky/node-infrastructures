@@ -1,4 +1,4 @@
-import { authenticatedAgent } from "../infrastructures/basicAuthentication";
+import { authenticatedAgent } from "../infrastructures/basic-authentication";
 
 describe("ContactRoutes", () => {
   it("should return a 400 error if the request body is missing", async () => {

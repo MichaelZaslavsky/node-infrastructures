@@ -1,6 +1,6 @@
 import app from "../../src/app";
 import Redis from "ioredis-mock";
-import { authenticatedAgent } from "../infrastructures/basicAuthentication";
+import { authenticatedAgent } from "../infrastructures/basic-authentication";
 
 const redisClient = new Redis(process.env.REDIS_HOST || "localhost");
 const mockRedisClient = redisClient;

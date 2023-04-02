@@ -1,5 +1,5 @@
 import Redis from "ioredis";
-import redisConfig from "../redisConfig.json";
+import redisConfig from "../redis-config.json";
 
 const redisClient = new Redis(redisConfig);
 

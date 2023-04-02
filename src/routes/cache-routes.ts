@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { check } from "express-validator";
-import * as cache from "../controllers/cacheController";
-import { validationMiddleware } from "../middleware/validationMiddleware";
+import * as cache from "../controllers/cache-controller";
+import { validationMiddleware } from "../middleware/validation-middleware";
 
 const router: Router = Router();
 

@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { check } from "express-validator";
-import { validationMiddleware } from "../middleware/validationMiddleware";
-import { submitContactForm } from "../controllers/contactController";
+import { validationMiddleware } from "../middleware/validation-middleware";
+import { submitContactForm } from "../controllers/contact-controller";
 
 const router = Router();
 

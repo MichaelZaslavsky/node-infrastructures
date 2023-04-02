@@ -1,7 +1,7 @@
-import { sendEmail } from "../../src/services/emailService";
-import { authenticatedAgent } from "../infrastructures/basicAuthentication";
+import { sendEmail } from "../../src/services/email-service";
+import { authenticatedAgent } from "../infrastructures/basic-authentication";
 
-jest.mock("../../src/services/emailService", () => ({
+jest.mock("../../src/services/email-service", () => ({
   sendEmail: jest.fn(),
 }));
 
