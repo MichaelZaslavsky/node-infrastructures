@@ -1,4 +1,4 @@
-[![Tests](https://github.com/michaelzaslavsky/node-infrastructures/actions/workflows/main.yml/badge.svg)](https://github.com/michaelzaslavsky/node-infrastructures/actions/workflows/ci.yml)
+[![Tests](https://github.com/michaelzaslavsky/node-infrastructures/actions/workflows/ci.yml/badge.svg)](https://github.com/michaelzaslavsky/node-infrastructures/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # Contact Us API
