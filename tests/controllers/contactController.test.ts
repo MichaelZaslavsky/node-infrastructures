@@ -40,7 +40,9 @@ describe("ContactController", () => {
     });
 
     expect(response.status).toBe(500);
-    expect(response.body).toEqual({ error: "Email service error" });
+    expect(response.body).toEqual({
+      errors: [{ message: "Internal server error. Please retry again later." }],
+    });
     expect(sendEmail).toHaveBeenCalledWith({
       from: "john@example.com",
       message: "Hello there!",
