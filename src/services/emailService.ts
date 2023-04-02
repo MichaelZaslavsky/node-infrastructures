@@ -1,10 +1,10 @@
-import { Email } from "../models/emailModel";
+import { IEmail } from "../interfaces/email.interface";
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-export async function sendEmail(email: Email) {
+export async function sendEmail(email: IEmail) {
   const transporter = nodemailer.createTransport({
     host: process.env.MAIL_HOST,
     port: 587,

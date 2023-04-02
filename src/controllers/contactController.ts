@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
 import { sendEmail } from "../services/emailService";
-import { Email } from "../models/emailModel";
+import { IEmail } from "../interfaces/email.interface";
 
 export async function submitContactForm(req: Request, res: Response) {
   try {
     const { name, email, subject, message } = req.body;
-    const model: Email = {
+    const model: IEmail = {
       name,
       from: email,
       to: "MichaelZaslavsky2@gmail.com",
