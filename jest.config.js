@@ -4,4 +4,5 @@ module.exports = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
+  reporters: ['jest-silent-reporter', 'summary'],
 };
